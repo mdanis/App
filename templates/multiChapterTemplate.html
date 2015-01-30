@@ -1,0 +1,39 @@
+
+<div id="in-containerbg">
+
+<div id="innerContNotes">
+
+	<div class="notesRightContent" style="min-height: 500px;">
+		<div class="mcqTestContainer">
+                    <div  id="multiplechapter">
+			<div class="mcqHeading">
+				<div class="mcqHeadTxt">MCT</div>
+			</div>
+			<div class="mcqContent mcqContent-02">
+				<div class="mcq-02-title">Choose chapters</div>
+				
+					<ul class="mcq02-list">
+				<li class="mcq02-radiocont" ng-repeat ="chapter in data.chapters">
+                        <input type="checkbox" name="chapter" id="chapter_{{chapter.chapter_id}}" class="subcheck-checkbox1" value="{{chapter.chapter_id}}" tabindex="8">
+                        <label for="chapter_{{chapter.chapter_id}}" class="subcheck-label1">{{chapter.chapter_name}}</label>
+            </li> 
+                                            
+					</ul>
+					<div class="clear">&nbsp;</div>
+					<div>
+						<a href="javascript:void(0);" class="mcq02-continue" ng-click="showTest();">showTestIcon</a>
+                                              <a href="javascript:void(0);" class="mcq02-back"  ng-click="goBack();">goBackIcon</a>
+						<div class="clear">&nbsp;</div>
+					</div>
+				
+			</div>
+			<div class="mcqBottom">
+				<div class="noteTxt">Note: You will be able to view the result after attempting the last question</div>
+			</div>
+                    </div>
+		</div>
+                
+	</div><!--- rightcontent end -->
+</div>
+</div>
+ 

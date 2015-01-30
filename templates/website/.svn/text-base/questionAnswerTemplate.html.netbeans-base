@@ -1,0 +1,60 @@
+
+<style>
+.middlegreyContainer_QA_ans, .hideanswer{display: none;}
+.loadingIconQA{display: none; margin-left: 45%;top: 100px;position: absolute;}
+</style>
+<div class="cont_book_scroll"  ng-controller="questionAnswerController"> 
+    
+    <div class="controllerPacket" ng-repeat="queData in queAnsData">
+        
+        <div class="containerQ1_QA">
+				<div id="cell" class="roseleft">
+				<p class="q1text">Q{{$index+1}}</p>
+			       </div>
+				<div id="cell" class="rosemiddle">
+                                    <p class="questiontext" ng-bind-html="queData.questiondata.question | unsafe">
+                                      
+                                    </p>
+                                <ul class="questionOptList">
+                                    <li class="questiontext" id="{{optionList.optionid}}" ng-if="queData.questiondata.questiontype == 'Objective'" ng-repeat="optionList in queData.optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                    
+                                    </li>
+                        
+                                </ul>
+				</div>
+				<div id="cell" class="roseright">        
+				<p class="markstext">Marks:{{queData.questiondata.questionmarks}}</p>
+				</div>
+			</div>
+        <div  class="middlegreyContainer_QA_ans" id="ansShowId_{{$index}}">
+                    <div class="middlecenter_QA_ans">
+                    <div class="answerboldtext">
+                    Answer: 
+                    <p ng-bind-html="queData.rightanswerdata.rightanswer[0].answer | unsafe"></p>
+                    
+                    <br ><p ng-if="queData.questiondata.explanatation != ' '">Explanation:</p>
+                    <div ng-if="queData.questiondata.explanatation != ' '" ng-bind-html="queData.questiondata.explanatation | unsafe"></div>
+                    </div>
+                    <div>
+                    </div>
+                    </div>
+                    </div>
+                        <div class="viewhideanswerContainer">
+                            <div class="hideanswer" id="hideId_{{$index}}">
+                            <a  href="javascript:void(0);" ng-click="showAndHideAns($index,'hide')">
+                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/images/Container_hide-answer_image.png">
+                            </a>
+                        </div>
+                            <div class="showanswer" id="showId_{{$index}}">
+                                <a  href="javascript:void(0);" ng-click="showAndHideAns($index,'show')">
+                               <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/images/Container_view_answer_image.png">
+                            </a>
+                        </div>
+		       </div>
+                        <div class="clear">&nbsp;</div>
+                        <div class="clear">&nbsp;</div>
+</div>
+</div>
+
+ <div class="clear">&nbsp;</div>
+ 

@@ -1,0 +1,173 @@
+<div style="padding-left:0; margin-top: 10px;">
+    <div class="borderRadius padding10">
+        <div class="mcqTestContainer">
+            <div class="mcqHeading">Test Level :</div>
+            <div class="mcqContent">
+                <div class="listContainer height490">
+                    <p>Choose any of the following: </p>
+                    <ul class="Labellisting">
+                        <li ng-switch on="data.level1Locking">
+                            <a href="javascript:;" ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/schoollms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/1')">
+                                <span class="listName">Difficulty Level 1 <em>(Take level 1 to test your knowledge.)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Start Test</span>
+                            </a>
+                                <a href="javascript:;" ng-switch-when="clear" href="javascript:void(0);" class="unlock active">
+                                <span class="listName">Difficulty Level 1 <em>(Take level 1 to test your knowledge.)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Clear</span>
+                        </a>
+                        </li>
+                    
+                        <li ng-switch on="data.level2Locking">
+                            <a href="javascript:;" ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/schoollms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/2')">
+                                <span class="listName">Difficulty Level 2  <em>(Solve these arduous questions and know how well 
+                                        prepared you are!)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Start Test</span>
+                            </a>
+                            <a href="javascript:;" ng-switch-when="clear" href="javascript:void(0);" class="unlock active" >
+                                <span class="listName">Difficulty Level 2  <em>(Solve these arduous questions and know how well 
+                                        prepared you are!)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Clear</span>
+                            </a>
+                        </li>
+                        <li ng-switch on="data.level3Locking">
+                            <a href="javascript:;" ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/schoollms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/3')">
+                                <span class="listName">Difficulty Level 3  <em>(Solve these arduous questions and know how well 
+                                        prepared you are!)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Start Test</span>
+                            </a>
+                            <a href="javascript:;" ng-switch-when="clear" href="javascript:void(0);" class="unlock active" >
+                                <span class="listName">Difficulty Level 3  <em>(Solve these arduous questions and know how well 
+                                        prepared you are!)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Clear</span>
+                            </a>
+                        </li>
+<!--                        <li><a href="javascript:;">
+                                <span class="listName">Knowledge/Understanding <em>(Solve these arduous questions and know how 
+                                        well prepared you are!)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Start Test</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                                <span class="listName">Skills/Application <em>(Test you skills/application knowledge.)</em></span><span class="btn btn-primary BtnDefault marginLeft5">Start Test</span></a>
+                        </li>-->
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="mcqTestContainer">
+    <div class="mcqHeading">
+        <div class="mcqHeadTxt">MCQ Test
+            <span class="mcqHeadTxt-right">
+               <a href="javascript:void(0);" class="basic" ng-click="showInstruction()"><img ng-src="{{basepath}}/images/help_icon.png" width="30"/></a>
+                 </span>
+        </div>
+    </div>
+    <div class="mcqContent">
+        <ul>
+            <li>
+                <div class="testContent">
+                    <div class="mcqImg" id="cell">
+                        <div class="round_bg">1</div>
+                    </div>
+                    <div class="mcqTxt" id="cell">
+                        <b>Level one</b> comprises of easy questions. A learner is expected to score at least 60% to qualify for the next level.</div>
+                    <div class="mcqType" id="cell">
+                        <p class="mcqtypeTxtLarge">Level 1</p>
+                    </div>
+                    <div class="mcqButton" id="cell" ng-switch on="data.level1Locking" > 
+                    
+                             <a  ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/1')">
+
+
+                            <img ng-src="{{basepath}}/images/unlock.png" height="40" />
+                        </a>
+                        <span ng-switch-when="clear" class="active">Clear</span>
+                        
+                        <img ng-switch-when="locked"  ng-src="{{basepath}}/images/lock_icon.png" height="40" alt="" Title="Clear level 1 to unlock this level" />
+                       
+                    </div>
+                </div>
+            </li>
+            <li >
+                <div class="testContent">
+                    <div class="mcqImg" id="cell">
+                        <div class="round_bg">2</div>
+                    </div>
+                    <div class="mcqTxt" id="cell">
+                        <b>Level two</b> comprises of easy & difficult questions in equal proportions. A learner is expected to score at least 60% to qualify for the next level.</div>
+                    <div class="mcqType" id="cell">
+                        <p class="mcqtypeTxtLarge">Level 2</p>
+                    </div>
+                    <div class="mcqButton" id="cell" ng-switch on="data.level2Locking">
+                              <a  ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/2')">
+
+
+                            <img ng-src="{{basepath}}/images/unlock.png" height="40" />
+                        </a>
+                        <span ng-switch-when="clear" class="active">Clear</span>
+                        
+                        <img ng-switch-when="locked"  ng-src="{{basepath}}/images/lock_icon.png" height="40" alt="" Title="Clear level 1 to unlock this level" />
+                       
+
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li ng-if="data.level3Exists == 'yes'">
+                <div class="testContent">
+                    <div class="mcqImg" id="cell">
+                        <div class="round_bg">3</div>
+                    </div>
+                    <div class="mcqTxt" id="cell">
+                        <b>Level three</b> comprises of difficult questions. A learner is expected to score at least 60% to qualify for the practice tests.</div>
+                    <div class="mcqType" id="cell">
+                        <p class="mcqtypeTxtLarge">Level 3</p>
+                    </div>
+                    <div class="mcqButton" id="cell" ng-switch on="data.level3Locking">
+ <a ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/3')">
+
+                            <img ng-src="{{basepath}}/images/unlock.png" height="40" />
+                        </a>
+                    <span ng-switch-when="clear" class="active">Clear</span>
+                       
+                        <img ng-switch-when="locked" ng-src="{{basepath}}/images/lock_icon.png" height="40" Title="Clear level 2 to unlock this level" />
+                       
+
+
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <div class="mcqBottom">
+        <div class="noteTxt">Note: You will be able to view the result after attemping the last question</div>
+    </div>
+</div>
+
+
+<div id="basic-modal-content">
+
+    <h3><strong>Single Chapter Test:</strong></h3>
+    <ul>
+        <li>(a) Clear one level and you become eligible to take the next level (Pass percentage – 60%)</li>
+        <li>(b) Paper duration: 20 minutes for each level</li>
+        <li>(c) Total Questions: 10</li>
+        <li>(d) Total Marks: 10</li>
+    </ul>
+    <h3><strong>Practice Papers:</strong></h3>
+    <ul>
+        <li>(a) Clear all levels of Single Chapter test for a chapter and you become eligible to take practice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;papers for that chapter</li>
+        <li>(b) Paper duration: 20 minutes</li>
+        <li>(c) Total Questions: 20</li>
+        <li>(d) Total Marks: 20</li>
+    </ul>
+    <h3><strong>Multiple Chapters Test:</strong></h3>
+    <ul>
+        <li>(a) Clear all levels of Single Chapter test for atleast two chapters and you become eligible to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;take Multiple chapter tests for those chapters</li>
+        <li>(b) Paper duration: 20 minutes</li>
+        <li>(c) Total Questions: 20</li>
+        <li>(d) Total Marks: 20</li>
+    </ul>
+</div>-->

@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="{{basepath}}/css_website/mcq.css" type="text/css" media="screen" />
+<div class="mcqTestContainer">
+	<div class="mcq-heading clearfix">
+		<h3>MCQ Test</h3>
+		<a href="javascript:;" data-slide-toggle="#modal" data-slide-toggle-duration="50" ng-click="showInstruction()" class="test-help"><img ng-src="{{basepath}}/images_website/help_icon.png" alt="" /></a>
+	</div>
+	<div class="mcq-content mcqtest-content">
+		<ul>
+			<li>
+				<div class="cols-1">
+					<strong class="img-circle">1</strong>
+				</div>
+				<div class="cols-2">
+					<p>
+						<strong>Level one</strong> comprises of easy questions. A learner is expected to score at least 60% to qualify for the next level.
+					</p>
+				</div>
+				<div class="cols-3">
+					<p>
+						Level 1
+					</p>
+				</div>
+				<div class="cols-4" ng-switch on="data.level1Locking">
+					
+                                    <a  ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/1')">
+
+
+                            <img ng-src="{{basepath}}/images_website/mcq/unlock.png" height="40" />
+                        </a>
+                        <span ng-switch-when="clear" class="active">Clear</span>
+                        
+                        <img ng-switch-when="locked"  ng-src="{{basepath}}/images_website/mcq/lock_icon.png" height="40" alt="" Title="Clear level 1 to unlock this level" />
+				</div>
+			</li>
+			<li>
+				<div class="cols-1">
+					<strong class="img-circle">2</strong>
+				</div>
+				<div class="cols-2">
+					<p>
+						<strong>Level two</strong> comprises of easy questions. A learner is expected to score at least 60% to qualify for the next level.
+					</p>
+				</div>
+				<div class="cols-3">
+					<p>
+						Level 2
+					</p>
+				</div>
+				<div class="cols-4" ng-switch on="data.level2Locking">
+					
+                              <a  ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/2')">
+
+
+                            <img ng-src="{{basepath}}/images_website/mcq/unlock.png" height="40" />
+                        </a>
+                        <span ng-switch-when="clear" class="active">Clear</span>
+                        
+                        <img ng-switch-when="locked"  ng-src="{{basepath}}/images_website/mcq/lock_icon.png" height="40" alt="" Title="Clear level 1 to unlock this level" />
+				</div>
+			</li>
+			<li>
+				<div class="cols-1">
+					<strong class="img-circle">3</strong>
+				</div>
+				<div class="cols-2">
+					<p>
+						<strong>Level three</strong> comprises of easy questions. A learner is expected to score at least 60% to qualify for the next level.
+					</p>
+				</div>
+				<div class="cols-3">
+					<p>
+						Level 3
+					</p>
+				</div>
+				<div class="cols-4" ng-switch on="data.level3Locking">
+					
+                                        <a ng-switch-when="test" href="javascript:void(0);" class="unlock" ng-click="showTest('/lms/mcq/index#test/'+data.container_id+'/'+data.service_id+'/single/3')">
+
+                            <img ng-src="{{basepath}}/images_website/mcq/unlock.png" height="40" />
+                        </a>
+                    <span ng-switch-when="clear" class="active">Clear</span>
+                       
+                        <img ng-switch-when="locked" ng-src="{{basepath}}/images_website/mcq/lock_icon.png" height="40" Title="Clear level 2 to unlock this level" />
+				</div>
+			</li>
+		</ul>
+		<div class="mcq-bottom">
+			<p>
+				Note: You will be able to view the result after attemping the last question
+			</p>
+		</div>
+	</div>
+</div>
+
+<!--<div id="basic-modal-content" style="display: none;">-->
+ <div id="modal" style="display: none;">
+     <a href="javascript:;"  data-slide-toggle="#modal" data-slide-toggle-duration="50" class="Closebtn">X</a>
+    <h3><strong>Single Chapter Test:</strong></h3>
+    <ul>
+        <li>(a) Clear one level and you become eligible to take the next level (Pass percentage – 60%)</li>
+        <li>(b) Paper duration: 20 minutes for each level</li>
+        <li>(c) Total Questions: 10</li>
+        <li>(d) Total Marks: 10</li>
+    </ul>
+    <h3><strong>Practice Papers:</strong></h3>
+    <ul>
+        <li>(a) Clear all levels of Single Chapter test for a chapter and you become eligible to take practice &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;papers for that chapter</li>
+        <li>(b) Paper duration: 20 minutes</li>
+        <li>(c) Total Questions: 20</li>
+        <li>(d) Total Marks: 20</li>
+    </ul>
+    <h3><strong>Multiple Chapters Test:</strong></h3>
+    <ul>
+        <li>(a) Clear all levels of Single Chapter test for atleast two chapters and you become eligible to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;take Multiple chapter tests for those chapters</li>
+        <li>(b) Paper duration: 20 minutes</li>
+        <li>(c) Total Questions: 20</li>
+        <li>(d) Total Marks: 20</li>
+    </ul>
+    <div class="overlaypopup"></div>
+</div>

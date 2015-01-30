@@ -1,0 +1,26 @@
+
+ <div class="ChapterDiv {{dashboard.groupname}}Service"  ng-repeat="dashboard in dashboardDetail">
+               
+              <div class="ChapterDiv" ng-class="getGroupClass(dashboard.groupname)">
+                  
+                    <div class="chapterheading">{{dashboard.groupname}}</div>
+                    <div class="clearfix"></div>
+                    <div class="ServiceList">
+                    <a href="javascript:void(0);" class="moreServicesBtn" ng-click="showMoreServices($event)">More</a>
+                       <ul class="ourService_icon">
+                                <li ng-repeat="servicelist in dashboard.data">
+                                    <a rel="tooltip" id="{{servicelist.serviceId}}"  ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable)" data-title="{{servicelist.serviceDesc}}" class="enabled_{{servicelist.enable}}" href="javascript:;"> 
+
+                                        <span><img border="0" ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}" alt="" title="{{servicelist.serviceDesc}}">
+                                        </span>
+                                        {{servicelist.serviceName}}
+                                    </a>
+                                    
+                                </li>
+                               <div class="clearfix"></div>
+                            </ul>
+                    </div>
+                </div>
+ </div>
+ <div class="clearfix"></div>
+ 

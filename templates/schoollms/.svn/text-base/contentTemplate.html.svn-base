@@ -1,0 +1,83 @@
+
+
+<div style="padding-left:0; margin-top: 10px;" class="paddingbottom40">
+      <div class="borderRadius padding10">
+        
+        <div class="pull-right">
+        	 <!--<p style="float:left; font-size:11px;" href="javascript:;">
+                    <span style="color:#555;" id="netCalMsg">Internet Speed is :</span> 
+              <span id="netSpeed" style="color: black;">
+                 
+                  <img  style="margin-top: 0px;" ng-src="{{siteUrl}}/images/netLoader.gif">
+                        </span>
+             <a href="javascript:;" onclick="recalculateSpeed();" style="display: none;"  title="Recalculate Internet Speed" id="reChangeSpeed">
+                   <img  style="margin-top: 0px;"  ng-src="{{siteUrl}}/images/back_undo.png">
+              </a>
+          </p> -->
+<!--        <a href="javascript:;" class="btn btn-primary BtnDefault"><i class="fa fa-search marginRight5 roundBorder"></i>Search</a>-->
+<a href="javascript:;" ng-click="showCarriculamDetail()" ng-show="showCurriculam" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-plus marginRight5 roundBorder"></i>Add to Curriculum</a>
+<!--        <a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a>-->
+        </div>
+        <div class="clearfix"></div>
+<div class="mcqTestContainer" style="border:none;">
+
+<div class="embed-responsive embed-responsive-16by9">
+    <div id="contentId" ng-bind-html="contentDataItem | unsafe"></div>
+ 
+</div>
+<div id="hiddendiv" style="display: none;"></div>
+
+</div>
+        
+      </div>
+    </div>
+<!--<div>
+    
+    <div style="width:100%;">
+    <div class="contentTop_btn"> 
+        <a id="addNotes" href="javascript:void(0);" class="add-notes-link askQue"  data-slide-toggle="#box1" data-slide-toggle-duration="1000">
+            <img align="right" ng-src="{{siteUrl}}/images/notes_icon2.png"> 
+            Add Notes</a> 
+        <a id="addQues" href="javascript:void(0);" class="add-notes-link addNotes" data-slide-toggle="#box2" data-slide-toggle-duration="1000">
+            <img align="right" ng-src="{{siteUrl}}/images/add-ques-icon.png"> 
+            Ask Ques.</a>
+        <div id="box1"  class="add-notesBg" style="display: none;">
+           
+<textarea placeholder="Add notes here..." id="msgnote" class="addNotesinput"></textarea>
+            <p>
+              <input type="submit" ng-click="saveNotesService()" class="notes-savebtn" value="Save" tabindex="8">
+              <input type="submit" class="notes-savebtn closenotes" value="Cancel" tabindex="9" data-slide-toggle="#box1" data-slide-toggle-duration="1000">
+              <span style="color:#2c6085" id="saveNotesSuccusses"></span></p>
+          </div>
+        <div id="box2" class="add-quesBg" style="display: none;">
+            <div style="position:relative; display:inline-block; margin:0 10px 0 2px; height:22px;">
+              <input type="checkbox" class="css-checkbox1" value="Group" name="checkboxquery[]" id="27784_group" tabindex="10">
+              <label style="position:relative; top:-17px; " class="css-label checkbox1" for="27784_group">Ask in group</label>
+            </div>
+                        <div class="clear"></div>
+           
+                <textarea class="addNotesinput" placeholder="Post a query..." name="comment_text" id="comment_text"></textarea>
+            <p>
+                <input type="button" value="Post" ng-click="commentPost()" id="qa_post" name="qa_post" class="notes-savebtn" tabindex="11">
+                <input type="submit" class="notes-savebtn closenotes" value="Cancel" tabindex="12" data-slide-toggle="#box2" data-slide-toggle-duration="1000">
+                <span style="color:#2c6085; margin:5px 0 0 5px;" id="successquestion"></span> 
+                <span href="javascript:void(0);" id="loadingPost" style="margin-top: 5px; display: none;">
+                    <img ng-src="{{siteUrl}}/images/loader16.gif"></span></p>
+        </div>
+    </div>
+
+</div>
+     <div id="contentId" ng-bind-html="contentDataItem | unsafe">
+
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+    <div ng-show="showQAlist" ng-bind-html="askQueData | unsafe">
+
+</div>
+    
+</div>-->
+
+
+
+

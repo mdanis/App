@@ -1,0 +1,46 @@
+ <div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+        <div class="pull-right">
+        <a href="javascript:;"class="btn btn-primary BtnDefault marginLeft5" ng-click="showTopic();">Continue</a>
+<!--        <a href="javascript:;"class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a>-->
+        </div>
+        <div class="clearfix"></div>
+      
+<div class="mcqTestContainer">
+<div class="mcqHeading"><img src="{{basepath}}/images/quiz-icon.png"  alt=""> Choose Multiple Chapter :</div>
+<div class="mcqContent">
+<div class="height490">
+<ul class="searchresultListing">
+<!--  <li><input name="" type="checkbox" value=""> Changes Around us</li>-->
+  <li class="" ng-repeat ="chapter in data.chapters">
+                        <input type="checkbox" name="chapter" id="chapter_{{chapter.chapter_id}}" class="subcheck-checkbox1" value="{{chapter.chapter_id}}" tabindex="8">
+                        <label for="chapter_{{chapter.chapter_id}}" class="subcheck-label1">{{chapter.chapter_name}}</label>
+            </li> 
+<!--   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+    <li><input name="" type="checkbox" value=""> Changes Around us</li>
+   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+	 <li><input name="" type="checkbox" value=""> Changes Around us</li>
+  <li><input name="" type="checkbox" value=""> Changes Around us</li>
+  <li><input name="" type="checkbox" value=""> Changes Around us</li>
+   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+    <li><input name="" type="checkbox" value=""> Changes Around us</li>
+   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+	 <li><input name="" type="checkbox" value=""> Changes Around us</li>
+  <li><input name="" type="checkbox" value=""> Changes Around us</li>
+  <li><input name="" type="checkbox" value=""> Changes Around us</li>
+   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+    <li><input name="" type="checkbox" value=""> Changes Around us</li>
+   <li><input name="" type="checkbox" value=""> Changes Around us</li>
+	 <li><input name="" type="checkbox" value=""> Changes Around us</li>
+  <li><input name="" type="checkbox" value=""> Changes Around us</li>-->
+  </ul>
+</div>
+
+</div>
+</div>
+
+
+
+        
+      </div>
+    </div>

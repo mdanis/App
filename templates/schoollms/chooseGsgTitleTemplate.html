@@ -1,0 +1,34 @@
+<div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+        <div class="pull-right">
+        <a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5" ng-click="showTest();">Continue</a>
+<!--        <a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a>-->
+        </div>
+        <div class="clearfix"></div>
+      
+<div class="mcqTestContainer">
+<div class="mcqHeading"><img ng-src="{{basepath}}/images/quiz-icon.png"  alt=""> Choose Title :</div>
+<div class="mcqContent">
+<div class="height490">
+<ul class="searchresultListing">
+<li class="" ng-repeat ="chapter in data">
+    <input type="radio" name="chapter" id="chapter_{{chapter.topic_id}}"  value="{{chapter.topic_id}}" tabindex="8">
+                        <label for="chapter_{{chapter.topic_id}}">{{chapter.topic_name}}</label>
+            </li> 
+<!--<li class="radio"><input id="radio2" type="radio" name="radio" value="1"><label for="radio2">Body Movements</label></li>
+<li class="radio"><input id="radio3" type="radio" name="radio" value="1"><label for="radio3">Fun with Magnets</label></li>
+<li class="radio"><input id="radio4" type="radio" name="radio" value="1"><label for="radio4">Separation of Substances</label></li>
+<li class="radio"><input id="radio5" type="radio" name="radio" value="1"><label for="radio5">The Living Organisms and their Surroundings</label></li>
+<li class="radio"><input id="radio6" type="radio" name="radio" value="1"><label for="radio6">Light, Shadows and Reflections</label></li>-->
+  
+  </ul>
+</div>
+
+</div>
+</div>
+
+
+
+        
+      </div>
+    </div>

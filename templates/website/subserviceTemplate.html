@@ -1,0 +1,20 @@
+<style>
+    .opacity_4{
+        opacity: 0.4;
+    }
+    </style>
+<div id="serviceTypeSubList"  ng-controller="subserviceController">
+                     <div class="subservice-list">
+			<ul>
+                            <li ng-repeat="serviceType in serviceList"  class="papers_subj">
+                                 <a ng-if="serviceType.enable == 0" class="opacity_4" id="serviceType.serviceId" ng-click="getServicedetail('/lms/json/servicelist/'+container_id+'/'+serviceType.serviceId,{serviceId: serviceType.serviceId,containerId:container_id},serviceType.enable)" href="javascript:;" title="serviceType.serviceName">
+                                    {{serviceType.serviceName}}
+                                </a>
+                                 <a ng-if="serviceType.enable == 1" id="serviceType.serviceId" ng-click="getServicedetail('/lms/json/servicelist/'+container_id+'/'+serviceType.serviceId,{serviceId: serviceType.serviceId,containerId:container_id},serviceType.enable)" href="javascript:;" title="serviceType.serviceName">
+                                    {{serviceType.serviceName}}
+                                </a>
+                            </li>
+                             
+			</ul>
+                     </div>
+              </div>

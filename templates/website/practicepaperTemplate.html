@@ -1,0 +1,71 @@
+
+        <div class="mcq-view mcq-review mcq-svres">
+            <div class="mcq-title">
+                <div class="mcq-head">Practice Papers</div>
+                <div class="clear">&nbsp;</div>
+            </div>
+            <div class="mcq-svres-table">
+                <div class="mcq-svres-cell">
+                    <img ng-src="{{basepath}}/images/mcq/time_image.png" width="68" height="68">
+                    <div class="mcq-svres-toptime">
+                        <div class="mcq-svres-toptimerow">
+                            <span>Total Time Allotted:</span>
+                            <span>20 mins</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="singleview-res-cntr">
+                <div class="singleview-res-cntr-child">
+                    <div class="singleview-res-cntr-left">
+
+                        <div class="singleview-res-cntr-leftrow">
+                            <div class="singleview-res-cntr-leftrowbox svres-bg-grey">Total Number of Questions</div><div class="singleview-res-cntr-leftrownum">20</div>
+                        </div>
+                        <div class="singleview-res-cntr-leftrow">
+                            <div class="singleview-res-cntr-leftrowbox svres-bg-grey">Total Marks</div><div class="singleview-res-cntr-leftrownum">20</div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="mcq-svres-div" id="cell"><div class="mcqButton" style="width:auto;"><a href="javascript:;" class="active" ng-click="showTest()">{{data.testButton}}</a></div></div>
+
+            </div>
+            <div>
+
+
+                <div class="clear">&nbsp;</div>
+            </div>
+            
+
+      <div class="mcq-svres-qa" ng-if="data.userresult.length == 0">
+                <div class="mcq-svres-qatop">Previous tests taken: <span class="mcqHeadTxt-right" style="padding-right:10px;"><strong>You have not taken any test yet.</strong></span></div> 
+            </div>
+
+        <div class="mcq-svres-qa" ng-if="data.userresult.length > 0">
+                <div class="mcq-svres-qatop">Previous tests taken: <span class="mcqHeadTxt-right" style="padding-right:10px;"></span></div> 
+            </div>
+            <table class="mcqTable" ng-if="data.userresult.length > 0">
+                <tr>
+                    <th width="20%" align="left">Sr. No.</th>
+                    <th width="25%" align="left">Date</th>
+                    <th width="25%" align="left">Time</th>
+                    <th width="30%" align="left">Percentage Obtained</th>
+                </tr>
+                 <tr ng-repeat="result in data.userresult">
+                    <td align="left">{{$index+1}}</td>
+                    <td align="left">{{result.set_date_added}}</td>
+                    <td align="left">{{result.set_time_added}}</td>
+                    <td align="left">{{result.set_percentage}} %</td>
+                </tr>
+        
+            </table>
+            
+            <div class="clear">&nbsp;</div>
+        </div>
+        <div class="clear">&nbsp;</div>
+
+

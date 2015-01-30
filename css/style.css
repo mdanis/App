@@ -1,0 +1,214 @@
+* {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#ProRight_pannelservice {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    float: left;
+    margin-left: 10px;
+    min-height: 500px;
+    padding: 10px 10px 30px;
+    position: relative;
+    width: 820px;
+}
+#inner-cont_rhtst {
+    -moz-box-sizing: border-box;
+    margin-left: 5%;
+    margin-right: 28px;
+    padding-top: 20px;
+}
+.cont_book_scroll {
+     height: 613px;
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 70%;
+}
+.lHeight10 {
+    clear: both;
+    line-height: 10px;
+}
+.shadowBox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 9px 8px -10px #CCCCCC inset, 0 -11px 8px -10px #FFFFFF inset;
+    height: 10px;
+    width: 100%;
+    margin-top: -5px;
+}
+
+#inner-cont_st {
+    -moz-box-sizing: border-box;
+    float: left;
+    width: 100%;
+}
+    .containerQ1_QA {
+    background-color: #FFFFFF;
+    border: 1px solid #D3D3D3;
+    border-radius: 8px;
+    display: table;
+    font-family: 'open_sansregular';
+    width: 99%;
+}
+
+#cell {
+    display: table-cell;
+    text-align: justify;
+    vertical-align: middle;
+}
+.roseleft {
+    background: none repeat scroll 0 0 #F76F76;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    height: 90px;
+    width: 11%;
+}
+.rosemiddle {
+    height: auto;
+    padding: 3px 0 10px 10px;
+    width: 73%;
+}
+.roseright {
+    background-color: #F8F8F8;
+    border-bottom-right-radius: 8px;
+    border-left: 1px solid #DFE2E6;
+    border-top-right-radius: 8px;
+    height: 90px;
+    width: 15.75%;
+}
+.q1text {
+    color: #FFFFFF;
+    font-size: 25px;
+    margin: 25px;
+}
+.questiontext {
+    font-size: 14px;
+    margin: 10px 20px;
+}
+.markstext {
+    font-size: 18px;
+    margin: 25px;
+}
+.middlegreyContainer_QA_ans{
+    display: none;
+}
+.middlecenter_QA_ans {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.answerboldtext {
+    font-size: 13px;
+    margin: 8px 26px;
+    font-weight: bold;
+}
+
+.viewhideanswerContainer {
+    float: left;
+    height: 45px;
+    margin-left: 38.75%;
+    width: 70%;
+}
+.clear {
+    clear: both;
+    line-height: 1px;
+}
+.questionOptList li{
+    list-style-type: lower-alpha;
+    margin-left: 25px;
+    list-style-position: inside;
+}
+.hideanswer{
+    display: none;
+}
+.showanswer{
+    display:block; 
+        
+}
+
+/* *********  for model pop up ********* */
+
+/* Normal styles for the modal */
+#modal {
+	font-family:arial;
+	text-align:left;
+	left:10%;
+	
+	opacity: 1;
+	position:absolute;
+	top:10%;
+	visibility: visible;
+	width:70%;
+	
+	box-shadow:0 3px 7px rgba(0,0,0,.25);
+	box-sizing:border-box;
+	transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+}
+	/* Make the modal appear when targeted */
+	#modal:target {
+		opacity: 1;
+		top:35%;
+		visibility: visible;
+	}
+#modal .header,#modal .footer {
+	border-bottom: 1px solid #e7e7e7;
+	border-radius: 5px 5px 0 0;
+}
+	#modal .footer {
+		border:none;
+		border-top: 1px solid #e7e7e7;
+		border-radius: 0 0 5px 5px;
+	}
+#modal h2 {
+	margin:0;
+	padding:0px;
+}
+#modal .btn {
+	float:right;
+}
+#modal .Closebtn {
+	float:right;
+	right:10px;
+	top:10px;
+	color:#222;
+	font-weight:bold;
+	font-size:17px;
+	text-decoration:none;
+	position:absolute;
+	z-index:1000;
+}
+#modal .popupContent{
+	padding:10px 15px;
+	background: #fff;
+line-height:19px;
+	border-radius:0 0 5px 5px;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+}
+#modal .headerh2{
+	padding:5px 15px;
+}
+.modal-content {
+	background: #f7f7f7;
+	position: relative;
+	z-index: 20;
+	border-radius:5px;
+}
+
+
+#modal .overlaypopup {
+	background-color: #000;
+	background: rgba(0,0,0,.5);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+/* ********* end for model pop up ********* */

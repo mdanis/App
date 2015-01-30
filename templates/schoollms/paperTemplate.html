@@ -1,0 +1,273 @@
+<style>
+.middlegreyContainer_QA_ans, .hideanswer{display: none;}
+.timeallotandLeft {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin-bottom: 4px;
+    padding: 5px 0;
+    width: 99%;
+}
+
+</style>
+<div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+        <div class="pull-right">
+            <a href="javascript:;" ng-click="showCarriculamDetail()" ng-show="showCurriculam" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-plus marginRight5 roundBorder marginRight5"></i>Add to Curriculum</a>
+<!--            <a href="javascript:;" class="btn btn-primary BtnDefault"><i class="fa fa-search marginRight5 roundBorder"></i>Search</a> 
+            <a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a> -->
+        </div>
+        <div class="clearfix"></div>
+        
+<div class="mcqTestContainer">
+<div class="mcqHeading">
+<span class="col3 font14">Maximum Marks: {{headerData.max_marks}} </span>
+<span class="col3 font14">Max Time: {{headerData.max_time}} </span>
+<!-- span class="col3 font14">Time Remaining: {{remainingTime}} </span -->
+
+
+              <span class="instruction2" >
+                  <a href="javascript:;" data-slide-toggle="#modal" data-slide-toggle-duration="50">
+                      <span style="color:white;">Instructions</span>
+                  </a>
+                      
+              </span>
+</div>
+</div>
+        
+        <div class="controllerPacket height490">
+            <div ng-repeat="queData in queAnsData.sectiondata">
+          <div align="center" ng-if="queData.name!=''">SECTION - {{queData.name}}</div>
+          <ul class="QuesListing" id="Q{{$index+1}}" ng-repeat="questions in questionsData[$index] ">
+            <li ng-if="questions != undefined" ng-repeat="question  in questions ">
+              <div class="containerQ1_QA">
+                <div class="roseleft cell">
+<!--                  <p class="q1text">Q1 </p>-->
+    <p  ng-if="question.order != '0' && $index == 0" class="q1text">Q{{$parent.$parent.$parent.$index+1}}</p>
+    <p ng-if="question.order != '0' && (questions.length > 1)  && $index > 0" class="q1text">(OR)</p>
+    <p ng-if="question.order == '0'" class="q1text">Q{{$parent.$parent.$index+1}}</p>
+                </div>
+                <div class="rosemiddle cell">
+<!--                  <p class="questiontext">How are winds formed?</p>-->
+<p class="questiontext" ng-bind-html="question.questions[0].questiondata.question | unsafe"></p>
+                                    
+                  <ul class="questionOptList">
+                       <li class="questiontext" id="{{optionList.optionid}}" ng-if="question.questions[0].questiontype == 'Objective'" ng-repeat="optionList in question.questions[0].optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                   
+                                    </li>
+                  </ul>
+                </div>
+                <div class="roseright cell">
+                  <p class="markstext">Marks:{{question.questions[0].questiondata.questionmarks}}</p>
+                </div>
+                  </div>
+                  <!-- start for instruction -->
+                  
+         
+        <div id="modal" style="display: none;">
+		<div class="modal-content">
+			<div class="headerh2">
+			<h2 style="color:black;">Instructions:</h2>
+			</div>
+				<a href="javascript:;"  data-slide-toggle="#modal" data-slide-toggle-duration="50" class="Closebtn">X</a>
+			
+			<div class="popupContent" ng-bind-html="headerData.instruction | unsafe">
+				
+                                
+			</div>
+			
+		</div>
+		<div class="overlaypopup"></div>
+	</div>
+                  <!-- end for instruction -->
+              
+                 <div style="display: none;"  class="middlegreyContainer_QA_ans" id="ansShowId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}">
+                    <div class="middlecenter_QA_ans">
+                    <div class="answerboldtext">
+                  <strong>Answer:</strong>
+                    <p ng-bind-html="question.questions[0].rightanswerdata.rightanswer[0].answer | unsafe"></p>
+                    
+                    <br ><p ng-if="question.questions[0].questiondata.explanatation !=' '">Explanation:</p>
+                    <div ng-if="question.questions[0].questiondata.explanatation != ' '" ng-bind-html="question.questions[0].questiondata.explanatation | unsafe"></div>
+                    </div>
+                    
+                    </div>
+                    </div>
+<!--              <div id="ansShowId" class="middlegreyContainer_QA_ans" style="display: none;">
+                <div class="middlecenter_QA_ans">
+                  <div class="answerboldtext"> <strong>Answer:</strong>
+                    <p>When the air moves, it is called as wind. Winds are formed due to uneven heating of the earth's surface.</p>
+                  </div>
+                </div>
+              </div>-->
+               <div class="clearfix"></div>
+               <div class="viewhideanswerContainer">
+                            <div class="hideanswer" id="hideId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}" style="display: none;">
+                            <a class="hideAnswer" href="javascript:void(0);" ng-click="showAndHideAns($parent.$parent.$parent.$index,$parent.$parent.$index ,$index,'hide')">
+<!--                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_hide-answer_image.png" />-->
+                                Hide Answer
+                            </a>
+                        </div>
+                            <div class="showanswer" id="showId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}">
+                                <a class="viewAnswer"  href="javascript:void(0);" ng-click="showAndHideAns($parent.$parent.$parent.$index,$parent.$parent.$index,$index,'show')">
+<!--                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_view_answer_image.png"  />-->
+                                 View Answer
+                            </a>
+                        </div>
+		       </div>
+<!--              <div class="viewhideanswerContainer">
+                <div style="display: none;" id="hideId" class="hideanswer"> 
+                <a href="javascript:void(0);" class="hideAnswer"> Hide Answer </a> </div>
+                <div id="showId" class="showanswer" style="display: block;"> 
+                <a href="javascript:void(0);" class="viewAnswer"> View Answer </a> </div>
+              </div>-->
+              <div class="clearfix">&nbsp;</div>
+            </li>
+          </ul>
+          <!--ul class="QuesListing">
+            <li>
+              <div class="containerQ1_QA">
+                <div class="roseleft cell">
+                  <p class="q1text">Q2 </p>
+                </div>
+                <div class="rosemiddle cell">
+                  <p class="questiontext">How are winds formed?</p>
+                  <ul class="questionOptList">
+                  </ul>
+                </div>
+                <div class="roseright cell">
+                  <p class="markstext ng-binding">Marks:1</p>
+                </div>
+              </div>
+              <div id="ansShowId" class="middlegreyContainer_QA_ans" style="display: block;">
+                <div class="middlecenter_QA_ans">
+                  <div class="answerboldtext"> <strong>Answer:</strong>
+                    <p>When the air moves, it is called as wind. Winds are formed due to uneven heating of the earth's surface.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="viewhideanswerContainer">
+                <div id="hideId class="hideanswer" > <a href="javascript:void(0);" class="hideAnswer"> Hide Answer </a>  </div>
+                <div id="showId" class="showanswer" style="display: none;"> <a href="javascript:void(0);" class="viewAnswer"> View Answer </a> </div>
+              </div>
+              <div class="clearfix">&nbsp;</div>
+            </li>
+          </ul-->
+        </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+
+<!--div id="inner-cont_rhtst">
+	
+	<h3 class="lesson-heading" ng-bind-html="headerData.title | unsafe"></h3>
+
+	
+        
+        <div class="answerMaxMarks">
+                                    <span class="">Maximum Marks: {{headerData.max_marks}}</span> 
+                                    <span  class="">Max Time: {{headerData.max_time}}</span> 
+                                    <span class="" id="remainpapertime">Remaining Time: {{remainingTime}}</span>
+                                  
+                                    <span class="flotRight"><a href="/download-pdf/Download-170739"><img ng-src="{{siteUrl}}/img/button_pdf.png"></a></span>
+                                    <div class="clear">&nbsp;</div>
+                                </div>
+        
+            <div class="timeallotandLeft">
+
+              <span class="instruction2" >
+                  <a href="javascript:;" data-slide-toggle="#modal" data-slide-toggle-duration="50">
+                      <span>Instructions</span>
+                  </a>
+                      
+              </span>
+              <div class="clear">&nbsp;</div>
+            </div>
+        <div id="modal" style="display: none;">
+		<div class="modal-content">
+			<div class="headerh2">
+			<h2>Instructions:</h2>
+			</div>
+				<a href="javascript:;"  data-slide-toggle="#modal" data-slide-toggle-duration="50" class="Closebtn">X</a>
+			
+			<div class="popupContent" ng-bind-html="headerData.instruction | unsafe">
+				
+                                
+			</div>
+			
+		</div>
+		<div class="overlaypopup"></div>
+	</div>
+        
+<div class="cont_book_scroll">
+    <div ng-repeat="queData in queAnsData.sectiondata">
+    <div align="center" ng-if="queData.name!=''">SECTION - {{queData.name}}</div>
+  
+    <div class="controllerPacket" >
+       
+        <ul id="Q{{$index+1}}" ng-repeat="questions in questionsData[$index] ">
+        
+            <li ng-if="questions != undefined" ng-repeat="question  in questions ">
+                
+                <div class="containerQ1_QA">
+				<div id="cell" class="roseleft">
+				  
+                                <p  ng-if="question.order != '0' && $index == 0" class="q1text">Q{{$parent.$parent.$parent.$index+1}}
+                                    </p>
+                                <p ng-if="question.order != '0' && (questions.length > 1)  && $index > 0" class="q1text">(OR)</p>
+                                <p ng-if="question.order == '0'" class="q1text">Q{{$parent.$parent.$index+1}}</p>
+			       </div>
+				<div id="cell" class="rosemiddle">
+                                    <p class="questiontext" ng-bind-html="question.questions[0].questiondata.question | unsafe">
+                                      
+                                    </p>
+                                <ul class="questionOptList">
+                                    <li class="questiontext" id="{{optionList.optionid}}" ng-if="question.questions[0].questiontype == 'Objective'" ng-repeat="optionList in question.questions[0].optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                   
+                                    </li>
+                        
+                                </ul>
+				</div>
+				<div id="cell" class="roseright">        
+				<p class="markstext">Marks:{{question.questions[0].questiondata.questionmarks}}</p>
+				</div>
+			</div>
+        <div style="display: none;"  class="middlegreyContainer_QA_ans" id="ansShowId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}">
+                    <div class="middlecenter_QA_ans">
+                    <div class="answerboldtext">
+                    Answer: 
+                    <p ng-bind-html="question.questions[0].rightanswerdata.rightanswer[0].answer | unsafe"></p>
+                    
+                    <br ><p ng-if="question.questions[0].questiondata.explanatation !=' '">Explanation:</p>
+                    <div ng-if="question.questions[0].questiondata.explanatation != ' '" ng-bind-html="question.questions[0].questiondata.explanatation | unsafe"></div>
+                    </div>
+                    
+                    </div>
+                    </div>
+                        <div class="viewhideanswerContainer">
+                            <div class="hideanswer" id="hideId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}" style="display: none;">
+                            <a  href="javascript:void(0);" ng-click="showAndHideAns($parent.$parent.$parent.$index,$parent.$parent.$index ,$index,'hide')">
+                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_hide-answer_image.png" />
+                            </a>
+                        </div>
+                            <div class="showanswer" id="showId_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_{{$index}}">
+                                <a  href="javascript:void(0);" ng-click="showAndHideAns($parent.$parent.$parent.$index,$parent.$parent.$index,$index,'show')">
+                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_view_answer_image.png"  />
+                            </a>
+                        </div>
+		       </div>
+                        <div class="clear">&nbsp;</div>
+                        <div class="clear">&nbsp;</div>
+                         
+            </li>  
+            
+        </ul>
+</div>
+</div>
+   
+</div>	
+
+
+</div -->

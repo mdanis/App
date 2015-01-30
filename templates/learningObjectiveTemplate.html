@@ -1,0 +1,35 @@
+    <div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+
+<div class="paperlistContainer">
+  <ul class="paperlisting">
+      <li ng-repeat="titleList in titleListData">
+<!--          <a id="serviceType.serviceId" ng-click="geContent('/lms/json/contentdetail/'+containerId+'/'+serviceId+'/'+titleList.content_id,{containerId:containerId,serviceId:serviceId,contentId:titleList.content_id,type:contentType})"  href="javascript:;" title="{{titleList.title}}">-->
+  <a id="titleId_{{$index+1}}"   href="javascript:;" title="{{titleList}}">
+<!--          <span class="paperName">Paper {{$index+1}}</span> -->
+<!--          <span class="paperName"></span> -->
+         <span class="listName">
+            {{titleList}}
+               </span>
+<!--          <i class="fa fa-angle-right list-arrow"></i>-->
+          </a>
+          </li>
+<!--  <li><a href="javascript:;">
+  <span class="paperName">Paper 1</span> 
+  <span class="listName">Air Around us -01</span><i class="fa fa-angle-right list-arrow"></i></a>
+  </li>
+   <li><a href="javascript:;">
+  <span class="paperName">Paper 2</span> 
+  <span class="listName">Air Around us -02</span><i class="fa fa-angle-right list-arrow"></i></a>
+  </li>
+   <li><a href="javascript:;">
+  <span class="paperName">Paper 3</span> 
+  <span class="listName">Air Around us -03</span><i class="fa fa-angle-right list-arrow"></i></a>
+  </li>-->
+  
+  </ul>
+  </div>
+
+        
+      </div>
+    </div>

@@ -1,0 +1,178 @@
+<style>
+    #openClass::after {
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 0px 20px 20px;
+border-color: transparent transparent rgb(94, 141, 255);
+position: absolute;
+content: '';
+left: 90px;
+top: -7px;
+transition: all 0.5s ease 0s;
+-webkit-transition: all 0.5s ease 0s;
+}
+    .click-nav {
+margin-top: 7px;
+width: 224px;
+position: absolute;
+display: none;
+z-index: 600;
+left: 155px;
+}
+.click-nav ul {
+font-family: Arial, Helvetica, sans-serif;
+}
+.click-nav ul li {
+position: relative;
+list-style: none;
+cursor: pointer;
+padding: 0px;
+}
+.click-nav ul li ul {
+background: rgb(94, 141, 255);
+padding: 10px;
+}
+.click-nav ul li ul {
+position: relative;
+left: 0px;
+right: 0px;
+z-index: 1000;
+}
+.click-nav ul {
+font-family: Arial, Helvetica, sans-serif;
+}
+.click-nav ul li ul li {
+border: none;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+float: left;
+}
+.click-nav ul li {
+position: relative;
+list-style: none;
+cursor: pointer;
+padding: 0px;
+}
+.click-nav ul li ul li a.firstLi {
+width: 101px;
+}
+.click-nav ul li ul li:nth-child(1) a {
+background: rgb(66, 108, 210);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li a {
+-webkit-transition: background-color 0.2s ease-in-out;
+transition: background-color 0.2s ease-in-out;
+display: block;
+padding: 10px 0px;
+background: none 0px 0px repeat scroll rgb(66, 108, 210);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+color: rgb(255, 255, 255);
+width: 50px;
+text-decoration: none;
+text-align: center;
+}
+.click-nav ul li a {
+-webkit-transition: background-color 0.2s ease-in-out;
+transition: background-color 0.2s ease-in-out;
+display: block;
+padding: 13px 10px 13px 35px;
+color: rgb(51, 51, 51);
+text-decoration: none;
+font-size: 13px;
+font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
+}
+.click-nav ul li ul li:nth-child(2) a {
+background: rgb(89, 127, 228);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li:nth-child(3) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li a {
+-webkit-transition: background-color 0.2s ease-in-out;
+transition: background-color 0.2s ease-in-out;
+display: block;
+padding: 10px 0px;
+background: none 0px 0px repeat scroll rgb(66, 108, 210);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+color: rgb(255, 255, 255);
+width: 50px;
+text-decoration: none;
+text-align: center;
+}
+.click-nav ul li ul li:nth-child(5) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li:nth-child(8) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li:nth-child(10) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li:nth-child(11) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+.click-nav ul li ul li:nth-child(13) a {
+background: rgb(128, 162, 252);
+border-bottom: 1px solid rgb(52, 93, 201);
+border-right: 1px solid rgb(52, 93, 201);
+}
+
+</style>
+        <div class="senior_breadscum_Bg" ng-controller="breadscumController">
+  <div class="container" style="position:relative">
+
+        <ul class="senior_breadscum">
+           
+            <li ng-repeat="breadscumList in breadscumdetail">
+                <a ng-class="addClasses($index,breadscumdetail.length)"  ng-if="breadscumList.rack_type!='board' && breadscumList.rack_type!='class' && !$last" id="{{breadscumList.rack_id}}"  click="breadscumList"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                <a   ng-if="breadscumList.rack_type=='board'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                <a   ng-if="breadscumList.rack_type=='class'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  data-slide-toggle="#openClass" data-slide-toggle-duration="500" href="javascript:;">{{breadscumList.rack_name}}</a>
+                
+                <a class="last"  ng-if="$last" click="breadscumList" name="{{breadscumList.rack_type}}"  subjectNode="{{subjectNode}}"  id="{{breadscumList.rack_id}}">{{breadscumList.rack_name}}</a>
+                
+           
+            
+            </li>
+
+        </ul>
+
+
+        <div id="openClass" class="click-nav" style="display: none;" >
+            <ul class="no-js">
+                <li>
+                    <ul>
+
+                        <li ng-repeat="classList in classDetail">
+                            <a ng-if="$index == 0" class="firstLi" href="{{siteUrl}}/schoollms/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index == 1" class="firstLi" href="{{siteUrl}}/schoollms/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index > 1" href="{{siteUrl}}/schoollms/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                        </li>
+                        <div class="clear"> </div>
+                    </ul>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+        </div 
+    </div>
+</div> 

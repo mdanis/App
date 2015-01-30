@@ -1,0 +1,100 @@
+<style>
+    .board_papers {
+        border: #EBEBEB solid 1px;
+        width: 100%;
+        background: #FBFBFB;
+        float: left;
+        font-family: 'open_sansregular';
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 12px;
+    }
+    .board_papers ul li {
+        display: inline;
+        height: 55px;
+        display: table-cell;
+        vertical-align: middle;
+        width: 50px;
+        text-align: center;
+    }
+    .board_papers ul li.papers_subj {
+        width: 295px;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .board_papers ul li.papers_year {
+        width: 135px;
+        text-align: left;
+    }
+    .board_papers ul li.papers_loc {
+        width: 195px;
+        text-align: left;
+    }
+    .papers_no1 {
+        background: #D4E7F8;
+    }
+    .papers_no2 {
+        background: #BAD9F5;
+    }
+    .papers_no3 {
+        background: #95C5F3;
+    }
+    .board-drop .dd {
+        height: 30px;
+        outline: none;
+    }
+</style>
+
+<div class="mcqTestContainer">
+
+    <div class="mcqHeading">
+        <div class="mcqHeadTxt">MCQ Chapter List           
+            <span ng-if="testListData.multipleCounter < 2" class="button_nor_inactive" style="float:right;font-size:16px; " title="Clear atleast two single chapter's levels to become eligle for Multiple Chapter Test">Multiple Chapter Test</span> 
+            <span ng-if="testListData.multipleCounter >= 2" class="button_nor" ng-click="showMCT()" style="float:right;font-size:16px; " title="Click to take Multiple Chapter Test">Multiple Chapter Test</span> 
+       
+        </div>
+
+    </div>
+    <div class="mcq1Content">
+        <div class="mcq3Heading">
+            <div class="testLevel" style="margin-left:0; width:60%;">Chapter Name</div>
+            <div class="attempt" style="margin-left:0; ">Select Mode</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <ul class="chapter-lists">
+
+            <li  ng-repeat="chapter in testListData.chapters">
+                <div class="chapter-list-name row-table" ng-bind-html="chapter.chapter_name | unsafe"></div>
+                <div class="chapter-list-level" style="float:right">
+                                  
+                     <div class="single" ng-switch on="chapter.singleLocking" style="display:table-cell;vertical-align: top;">                
+                        
+                        <p ng-switch-when="locked" style="height: 46px;padding: 10px;" class ="singleChapterGrey Disable " ng-class="{{chapter.singleLocking}}"   >Single Chapter <br><span>{{chapter.singleChapterTime}} min</span>                   </p>
+                        
+                         <p  ng-switch-default class ="singleChapterGrey row-table"  ng-class="{{chapter.singleLocking}}"   ng-click="showLevel($event,'/lms/json/mcqlevel/'+chapter.rack_id+'/'+testListData.service_id+'/single',{serviceId: testListData.service_id,containerId:chapter.rack_id,type:'single'})" >Single Chapter <br><span>{{chapter.singleChapterTime}} min</span>
+                    </p>
+                    </div> 
+                    
+                     <div class="practice" ng-switch on="chapter.practicelocking" style="display:table-cell">                
+                        
+                        <p  ng-switch-when="locked" class ="practiceChapterDisable row-table"  ng-class="{{chapter.practicelocking}}"    >Practice Paper  <br><span>{{chapter.practicePaperTime}} min</span>
+                    </p>
+                         <p ng-switch-default class ="practiceChapterlhtBlue row-table"  ng-class="{{chapter.practicelocking}}"   ng-click="showPractice($event,chapter.rack_id)" >Practice Paper  <br><span>{{chapter.practicePaperTime}} min</span>
+                    </p>
+                    </div> 
+                                  
+                   
+
+                </div>
+                <div class="clear">&nbsp;</div>
+            </li>
+
+
+        </ul>
+
+        <div class="clear">&nbsp;</div>
+    </div>
+    <div class="mcqBottom">
+        <div class="noteTxt">Note: You will be able to view the result after attemping the last question</div>
+    </div>
+</div>

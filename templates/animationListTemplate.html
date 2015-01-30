@@ -1,0 +1,92 @@
+<div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+        
+<!--        <div class="pull-right">
+        <a href="javascript:;" class="btn btn-primary BtnDefault"><i class="fa fa-search marginRight5 roundBorder"></i>Search</a>
+        <a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a>
+        </div>-->
+        <div class="clearfix"></div>
+<div class="mcqTestContainer">
+<div class="mcqHeading">Animation Chapter List</div>
+<div class="mcqContent">
+<div class="mcq2Heading">
+<ul class="nav nav-tabs customTab" role="tablist">
+    <li  ng-class="{active: 0 == selected}"><a href="javascript:;" ng-click="showAnimationList(0)">List of Animation </a></li>
+    <li ng-class="{active: 1 == selected}"><a href="javascript:;"  role="tab" ng-click="showOtherAnimationList(1)" ng-init="count=0">Other Animation</a></li>
+    <li ng-class="{active: 2 == selected}"><a href="javascript:;"   role="tab" ng-click="showSearchList(2)">Search</a></li>
+</ul>
+
+</div>
+
+
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <div class="tab-pane" id="animationtab" ng-shiow="animationtab" ng-class="{active: 0 == selected}">
+  <div class="listContainer height490">
+  <ul class="listing">
+      <li ng-repeat="animation in listOfAnimation">
+          <a href="javascript:;" ng-click="getAnimationContent(animation.content_id)" title="{{animation.title}}">
+     <span class="imageIcon"><img width="30" height="30" ng-src="{{animationIconPath}}{{animation.icon_path}}"> </span>
+     <span class="listName">{{animation.title}}</span>
+      <i class="fa fa-angle-right list-arrow"></i>
+      </a>
+  </li>
+
+  </ul>
+  </div>
+  </div>
+  
+  <div class="tab-pane" id="otheranimationtab" ng-shiow="otheranimationtab" ng-class="{active: 1 == selected}">
+  <div class="listContainer">
+  <ul class="listing">
+      <li ng-repeat="animation in listOfOtherAnimation">
+          <a href="javascript:;" ng-click="getAnimationContent(animation.content_id)" title="{{animation.title}}">
+     <span class="imageIcon"><img width="30" height="30" ng-src="{{animationIconPath}}{{animation.icon_path}}"> </span>
+     <span class="listName">{{animation.title}}</span>
+      <i class="fa fa-angle-right list-arrow"></i>
+      </a>
+  </li>
+
+  </ul>
+  </div>
+  </div>
+  
+  <div class="tab-pane" id="searchtab" ng-shiow="searchtab" ng-class="{active: 2 == selected}">
+  
+   <div class="listContainer">
+  <div class="searchBg">
+  <span class="search">Search</span>
+  <span class="searchcontent"><input id="searchInputField" type="text" ng-keyup="goToSerchOnKeaup($event)" name="Search" class="searchInput" placeholder="Search Animation"></span>
+  <span class="searchBTN"><input type="button" value="Go" name="button" class="searchSubmit" ng-click="goToSearch($event)"></span>
+  </div>
+        <div class="clearfix"></div>
+        <div class="height490">  
+     <ul class="animationSearch-listing" style="margin-top: 20px">
+     <li ng-repeat="animation in listOfsearchAnimation">
+     <span class="imageIcon"><img width="30" height="30" ng-src="{{animationIconPath}}{{animation.icon_path}}"> </span>
+     <span class="listName" ng-if="animation.topic"> 
+         {{animation.board}}  > {{animation.class}} > {{animation.subject}} > {{animation.chapter}} > {{animation.topic}} > 
+         <a href="javascript:;">{{animation.keyword}}</a>
+     </span>
+     <span class="listName" ng-if="!animation.topic"> {{animation.board}} > {{animation.class}} > {{animation.subject}} > {{animation.chapter}} > 
+         <a href="javascript:;" ng-click="getAnimationContent(animation.content_id)" title="{{animation.keyword}}">{{animation.keyword}}</a></span>
+<!--      <i class="fa fa-angle-right list-arrow"></i>-->
+      </li>
+
+  </ul>
+             
+        </div>
+  </div>
+  
+  </div>
+</div>
+
+
+</div>
+</div>
+        
+      </div>
+    </div>

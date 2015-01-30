@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="{{siteUrl}}/css_website/mcq.css" type="text/css" media="screen" />
+<div class="mcqTestContainer">
+	<div class="mcq-heading clearfix">
+		<h3>MCQ Chapter List</h3>
+		<span ng-if="testListData.multipleCounter < 2" class="button_nor_inactive" style="float:right;font-size:16px; " title="Clear atleast two single chapter's levels to become eligle for Multiple Chapter Test">Multiple Chapter Test</span> 
+            <span ng-if="testListData.multipleCounter >= 2" class="button_nor" ng-click="showMCT()" style="float:right;font-size:16px; " title="Click to take Multiple Chapter Test">Multiple Chapter Test</span> 
+	</div>
+	<div class="mcq-content">
+		<div class="mcq2-heading clearfix">
+			<strong class="col-xs-8">Chapter Name</strong>
+			<strong class="col-xs-4">Select Mode</strong>
+		</div>
+		<ul class="custom-scroll">
+			<li  ng-repeat="chapter in testListData.chapters">
+                           
+				<div class="chapter-listname">
+					<span  ng-bind-html="chapter.chapter_name | unsafe"></span>
+				</div>
+				<div class="chapter-list-level chapter-level-bg1" ng-switch on="chapter.singleLocking">
+					<a href="javascript:;" ng-switch-when="locked" ng-class="{{chapter.singleLocking}}" >Single Chapter <span>{{chapter.singleChapterTime}} min</span></a>
+                                        <a href="javascript:;" ng-switch-default ng-class="{{chapter.singleLocking}}" ng-click="showLevel($event,'/lms/json/mcqlevel/'+chapter.rack_id+'/'+testListData.service_id+'/single',{serviceId: testListData.service_id,containerId:chapter.rack_id,type:'single'})" >Single Chapter <span>{{chapter.singleChapterTime}} min</span></a>
+                               </div>
+				<div class="chapter-list-level chapter-level-bg2">
+					<strong ng-switch-when="locked" ng-class="{{chapter.practicelocking}}">Practice Paper <span>{{chapter.practicePaperTime}} min</span></strong>
+                                        <strong ng-switch-default  ng-class="{{chapter.practicelocking}}" ng-click="showPractice($event,chapter.rack_id)">Practice Paper <span>{{chapter.practicePaperTime}} min</span></strong>
+                                </div>
+			</li>
+			
+		</ul>
+		<div class="mcq-bottom">
+			<p>
+				Note: You will be able to view the result after attemping the last question
+			</p>
+		</div>
+	</div>
+</div>

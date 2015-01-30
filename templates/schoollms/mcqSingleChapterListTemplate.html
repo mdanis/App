@@ -1,0 +1,19 @@
+ <div style="padding-left:0; margin-top: 10px;">
+<div class="borderRadius padding10">
+<div class="mcqTestContainer">
+<div class="mcqHeading">Choose Single Chapter :</div>
+<div class="mcqContent">
+<div class="height490">
+<ul class="singleChapterlisting">
+  <li ng-repeat="chapter in testListData.chapters">
+      <a id="{{chapter.rack_id}}" ng-class="{{chapter.singleLocking}}"   ng-click="showLevel($event,'/lms/json/mcqlevel/'+chapter.rack_id+'/'+testListData.service_id+'/single',{serviceId: testListData.service_id,containerId:chapter.rack_id,type:'single'})" href="javascript:;" title="{{chapter.chapter_name}}">
+  <span class="listName">{{chapter.chapter_name}}</span><i class="fa fa-angle-right list-arrow"></i></a>
+  </li>
+
+  </ul>
+</div>
+
+</div>
+</div>
+      </div>
+    </div>

@@ -1,0 +1,153 @@
+<script type="text/javascript">
+    var BASE_URL = '<?php echo $this->basePath(); ?>';
+    var siteUrl = '<?php echo $this->basePath(); ?>';
+    //alert(BASE_URL)
+    function showChapters(subject_id)
+    {
+        $(".blank_div").show();
+        $('#subsubject').removeClass('showsuject');
+        $('.showsuject').removeClass('showsuject');
+        $('#subsubject').addClass('showsuject');
+         //$('#subSubjectListing').slideUp('slow').load('<?php //echo $this->Url('subjectchapterlist')  ?>?rack_container_id='+subject_id).slideDown('slow');   
+        $(".heading").focus();
+
+    }
+
+</script>
+
+
+
+<div id="ProLeft_pannel">
+  <div class="firstlabel_subject labelAll" id="subsubject">
+
+        <ul id="subSubjectListing">
+            <span class="lodding_icon"   id="loadding1"><img ng-src="{{appConst.siteUrl}}/images/loader16.gif"></span>
+            <div class="scrollcontent scrollcontentlevel3" id="templateOne">
+                <li><a class="heading"  title="{{chapterSubject.parent}}" href="javascript:void(0);">{{chapterSubject.parent}}</a></li>
+                <li ng-repeat="showChapter in chapterList">
+                    <a ng-if="chapterSubject.child == 1" ng-click="showChapterL(showChapter.rack_id,chapterSubject.child,ClassName)" title="{{showChapter.rack_name}}" href="javascript:void(0);">{{showChapter.rack_name}}
+                    </a>
+                 <a ng-if="chapterSubject.child == 0" ng-click="showChapterDetail(showChapter.rack_id,chapterSubject.child,ClassName)" title="{{showChapter.rack_name}}" href="javascript:void(0);">{{showChapter.rack_name}}
+                    </a></li>
+            </div>
+        </ul>
+    </div> 
+
+    <!--  end first template -->
+
+    <!--  start second template -->
+    <div class="secondlabel_subject labelAll" id="subsubjectchapters">
+        <span class="lodding_icon" id="loadding2"><img ng-src="{{appConst.siteUrl}}/images/loader16.gif"></span>
+        <ul id="subSubjectChapterListing">
+
+
+            <div class="scrollcontentlevel2 scrollcontent" id="templateTwo">
+                <li><a class="heading" title="{{chapterSubjectViseList.parent}}" href="javascript:void(0);">{{chapterSubjectViseList.parent}}</a></li>
+                <li ng-repeat="showChapterViseList in showChapterViseListDetail">
+                    <a ng-if="chapterSubjectViseList.child == 1"  ng-click="showAnotherChapter1(showChapterViseList.rack_id,chapterSubjectViseList.child,ClassSubName)" title="{{showChapterViseList.rack_name}}" href="javascript:void(0);">{{showChapterViseList.rack_name}}</a>
+                    <a ng-if="chapterSubjectViseList.child == 0"  ng-click="showChapterDetail(showChapterViseList.rack_id,chapterSubjectViseList.child,ClassSubName)" title="{{showChapterViseList.rack_name}}" href="javascript:void(0);">{{showChapterViseList.rack_name}}</a>
+                </li>
+            </div>
+        </ul>
+
+    </div>
+
+    <!--  end second template -->
+
+
+    <!--  start third template -->
+    
+    <div class="secondlabel_subject thirdLevel labelAll" id="thirdLevelChapter">
+        <span class="lodding_icon" id="loadding3"><img ng-src="{{appConst.siteUrl}}/images/loader16.gif"></span>
+        <ul id="subSubjectChapterdetail">
+
+
+            <div class="scrollcontentlevel2 scrollcontent" id="templateThree">
+
+                <li>
+                    <a class="heading" title="{{chapterSubjectViseDetail.parent}}" href="javascript:void(0);"> </a>    
+                </li>
+                 <li ng-repeat="thirdTemplate in showChapterDetail">
+                      <a ng-if="chapterSubjectViseDetail.child == 1" class="heading" href="javascript:void(0);" ng-click="showAnotherChapter2(thirdTemplate.rack_id,thirdTemplate.child,detailClassSubName)" title="{{thirdTemplate.rack_name}}">{{thirdTemplate.rack_name}}</a>    
+                      <a ng-if="chapterSubjectViseDetail.child == 0"  ng-click="showChapterDetail(thirdTemplate.rack_id,thirdTemplate.child,detailClassSubName)" title="{{thirdTemplate.rack_name}}" href="javascript:void(0);">{{thirdTemplate.rack_name}}</a>
+                </li>
+
+<!--                <li><a class="fancybox" id="various1" 
+                       onclick="getPopupForms('login');" href="javascript:void(0);">Julius Caesar Act - III, Scenes 1 & 2</a></li>
+
+
+                <li><a class="fancybox" id="various1" 
+                       onclick="getPopupForms('login');" href="javascript:void(0);">Julius Caesar, Act  II, Scene 2</a></li>
+
+
+                <li><a class="fancybox" id="various1" 
+                       onclick="getPopupForms('login');" href="javascript:void(0);">The Dear Departed</a></li>-->
+
+            </div> 
+        </ul>
+
+    </div>
+
+    <!--  end third template -->
+
+    
+    <!--  start main subject template -->
+    <ul class="PorSubject">
+
+        <div class="scrollcontent" id="mainSubjectBlockList">
+      
+                    <?php 
+                    
+                    $containerList = $this->ChildList($containerId);
+                    
+                    foreach ($containerList as $container) {
+                    	
+                    	if($container->getContainerDetail()->count() > 0) {
+						$containerDetail=$container->getContainerDetail();
+							foreach($containerDetail as $detail ) {
+								if($detail->getColKey()=='icon')
+								$icon=$this->basepath().'/images/icons/'.$detail->getValue();
+								if($detail->getColKey()=='color')
+									$color=$detail->getValue();
+							}
+							
+
+						} else { 
+							
+							$icon=$this->basepath().'/images/icons/Lesson.png';
+							$color='';
+						}
+                    	
+                        ?> <li class="subshowall">
+                            <a ng-click="showChapterList('<?php echo $container->getRackId(); ?>', '<?php echo strtolower($container->getRackName()->getName()); ?>')" onclick="showChapters('<?php echo $container->getRackId(); ?>');" href="javascript:;" title="<?php echo $container->getRackName()->getName(); ?>" class="menuAll " style="background-color: <?php echo $color; ?>">
+
+                               
+
+                                <img class="menuAll" src="<?php echo $icon; ?>">
+
+                                <span class="menuAll"><?php echo $container->getRackName()->getName(); ?></span>
+
+                            </a>
+
+                        </li>
+                    <?php } //echo "dfhsdfhsdlhf";exit; ?>   <!-----End ---->
+
+                    <!--<a id="showallbtn" style="display:none" href="javascript:void(0);" onclick="showall();">Show All</a>-->       
+
+        
+      </div>   
+
+    </ul>
+    
+    <!--  end main subject template -->
+    
+</div><!--left end-->
+
+<!--<script type="text/javascript" src="<?php //echo $this->basePath(); ?>/js/subjectListingApp.js"></script>
+<script type="text/javascript" src="<?php //echo $this->basePath(); ?>/js/angular-sanitize.js"></script>-->
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<style>
+    .opacity_4{    
+        opacity: 0.5;
+      }
+    .blackfade .ServiceList:after{ top:0; content:""; position: absolute; z-index: 10; width: 100%; height: 100%; background: #000; opacity: 0.3;}
+    </style>
+  <!-- new boot starp design -->
+  <div id="chapterDetailMidId" ng-controller="subjectController">
+        <div class="ChapterDiv  clearfix {{dashboard.groupname}}Service"  ng-class="getGroupClass(dashboard.groupname)" ng-repeat="dashboard in dashboardDetail">
+            <div class="chapterheading">{{dashboard.groupname}}</div>
+                
+            
+            <div class="clear"></div>
+            <div class="ServiceList" ng-class="addClass(dashboard.groupenable)">
+                <!-- a title="" data-placement="top" data-toggle="tooltip" class="instructions helpsnipetIcon" href="javascript:void(0)" data-original-title="These services encapsulate the learning points of the chapter. Through Smart Learning Modules, Quick Study, animations and other inputs they offer a much more dynamic and interesting experience compared to a paperback.">
+                     <img border="0" src="assets/images/helpPng_icon.png" alt="help">
+                     </a -->
+                         <a ng-if="dashboard.groupname=='Learn'" title="" data-original-title="These services encapsulate the learning points of the chapter. Through Smart Learning Modules, Quick Study, animations and other inputs they offer a much more dynamic and interesting experience compared to a paperback." data-placement="top" data-toggle="tooltip" class="instructions helpsnipetIcon" href="javascript:void(0)"><img border="0" src="{{siteUrl}}/images/website/helpPng_icon.png" alt="help"></a>
+                        
+                         <a ng-if="dashboard.groupname=='Practice'" title="" data-original-title="Reinforce your learning by practicing with numerous solved questions, virtual labs and Higher Order thinking Skills (HOTS). As the maxim goes, practice makes a man perfect." data-placement="top" data-toggle="tooltip" class="instructions helpsnipetIcon" href="javascript:void(0)"><img border="0" src="{{siteUrl}}/images/website/helpPng_icon.png" alt="help"></a>
+                         
+                          <a ng-if="dashboard.groupname=='Test'" title="" data-original-title="Check your skills against our battery of tests which include computer evaluated multiple choice questions as well as self evaluated descriptive ones. The former are calibrated as per their degrees of difficulty. You also have the option of taking mentor administrated tests." data-placement="top" data-toggle="tooltip" class="instructions helpsnipetIcon" href="javascript:void(0)"><img border="0" src="{{siteUrl}}/images/website/helpPng_icon.png" alt="help"></a>
+                          
+                          <a ng-if="dashboard.groupname!='Learn' && dashboard.groupname!='Test' && dashboard.groupname!='Practice'" title="" data-original-title="{{dashboard.groupname}}" data-placement="top" data-toggle="tooltip" class="instructions helpsnipetIcon" href="javascript:void(0)"><img border="0" src="{{siteUrl}}/images/website/helpPng_icon.png" alt="help"></a>
+                <ul class="ourService_icon">
+                    <li ng-repeat="servicelist in dashboard.data">
+                        <!--a title="" data-placement="top" data-toggle="tooltip" href="javascript:void(0)" data-original-title="Visually impactful, Smart Learning Modules simplify concepts through high grade multimedia and mellifluous voice overs.">
+                            <span>
+                                <strong>
+                            <img alt="" src="assets/images/services/433.png">
+                            </strong>
+                            </span>
+                             Lesson
+                             </a -->
+                             <a data-placement="top" data-toggle="tooltip" ng-if="servicelist.enable == 0 && servicelist.mctenable == 0" class="enabled_{{servicelist.enable}} opacity_4" rel="tooltip" id="{{servicelist.serviceId}}"  ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable,$event,servicelist.mctenable)" title="" data-original-title="{{servicelist.serviceDesc}}"  href="javascript:;">
+                                        <span>
+                                            <strong>
+                                            <img border="0" ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}" alt="">
+                                        </strong>
+                                        </span>
+                                        {{servicelist.serviceName}}
+                                    </a>
+                                     <a data-placement="top" data-toggle="tooltip" ng-if="servicelist.enable == 1 && servicelist.mctenable == 0" class="enabled_{{servicelist.enable}} opacity_4" rel="tooltip" id="{{servicelist.serviceId}}"  ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable,$event,servicelist.mctenable)" title="" data-original-title="{{servicelist.serviceDesc}}"  href="javascript:;">
+                                        <span>
+                                            <strong>
+                                                <img border="0" ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}" alt="">
+                                            </strong>
+                                        </span>
+                                        {{servicelist.serviceName}}
+                                    </a>
+                                    <a data-placement="top" data-toggle="tooltip" ng-if="servicelist.enable == 0 && servicelist.mctenable == 1" class="enabled_{{servicelist.enable}} opacity_4" rel="tooltip" id="{{servicelist.serviceId}}"  ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable,$event,servicelist.mctenable)" title="" data-original-title="{{servicelist.serviceDesc}}"  href="javascript:;">
+                                        <span>
+                                            <strong>
+                                                <img border="0" ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}" alt="">
+                                            </strong>
+                                        </span>
+                                        {{servicelist.serviceName}}
+                                    </a>
+                                     <a data-placement="top" data-toggle="tooltip" ng-if="servicelist.enable == 1 && servicelist.mctenable == 1" class="enabled_{{servicelist.enable}}" rel="tooltip" id="{{servicelist.serviceId}}"  ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable,$event,servicelist.mctenable)" title="" data-original-title="{{servicelist.serviceDesc}}" class="enabled_{{servicelist.enable}}" href="javascript:;">
+                                        <span>
+                                            <strong>
+                                                <img border="0" ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}" alt="">
+                                            </strong>
+                                        </span>
+                                         <!-- p ng-if="servicelist.trialIcon == 1" class="service_trail_icon"><img border="0" alt="Trial" ng-src="{{siteUrl}}/images/service_trail_icon.png"></p -->
+                                        {{servicelist.serviceName}}
+                                    </a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+        <div class="text-pdf clearfix">
+            <a href="javascript:;" ng-if="downloadPdf != ' '" ng-show="pdfShow" href="{{downloadPdf}}">
+                <img alt="" src="{{siteUrl}}/images/website/services/book_pdf.png">
+            </a>
+        </div>
+    </div>
+  <!-- end design -->

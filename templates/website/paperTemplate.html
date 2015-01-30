@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="{{siteUrl}}/css_website/paper.css" type="text/css" media="screen" />
+<div class="model-paper">
+    <h3 ng-bind-html="headerData.title | unsafe"></h3>
+    <div class="maxmarks clearfix">
+        <ul>
+            <li>
+                Maximum Marks: {{headerData.max_marks}}
+            </li>
+            <li>
+                Max Time: {{headerData.max_time}}
+            </li>
+            <li>
+                <time>
+                    Remaining Time: {{remainingTime}}
+                </time>
+            </li>
+        </ul>
+        <span class="download-pdf clearfix"><a href="javascript:;" class="btn btn-primary" ng-click="downloadPdf()">Download PDF</a></span>
+    </div>
+    <div class="paper-instruction">
+        <a href="javascript:void(0)" data-whatever="@mdo" data-target="#exampleModal2" data-toggle="modal">
+            <span class="caret"></span>
+            Instructions
+            </a>
+    </div>
+    <div class="model-paperscroll custom-scroll-paper">
+        <div class="paper-block" ng-repeat="queData in queAnsData.sectiondata">
+            <h4>SECTION - {{queData.name}}</h4>
+            <ul id="Q{{$index+1}}" ng-repeat="questions in questionsData[$index] ">
+                <li ng-if="questions != undefined" ng-repeat="question  in questions ">
+                    <div class="container-Ques">
+                        <div class="ques-l">
+                            <span ng-if="question.order != '0' && $index == 0">Q{{$parent.$parent.$parent.$index+1}}</span>
+                            <span ng-if="question.order != '0' && (questions.length > 1)  && $index > 0" >(OR)</span>
+                            <span ng-if="question.order == '0'" >Q{{$parent.$parent.$index+1}}</span>
+                        </div>
+                        <div class="ques-content">
+                            <p ng-bind-html="question.questions[0].questiondata.question | unsafe">
+                            </p>
+                        </div>
+                        <ul class="questionOptList">
+                                    <li class="questiontext" id="{{optionList.optionid}}" ng-if="question.questions[0].questiontype == 'Objective'" ng-repeat="optionList in question.questions[0].optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                   
+                                    </li>
+                        
+                                </ul>
+                        <div class="marks-r">
+                            <span>Marks:{{question.questions[0].questiondata.questionmarks}}</span>
+                        </div>
+                    </div>
+                    <div class="answer-block">
+                        <h5>Answer: </h5>
+                        <div class="right-answer">
+                            <span ng-bind-html="question.questions[0].rightanswerdata.rightanswer[0].answer | unsafe">
+                            </span>
+                        </div>
+                        <h5 ng-if="question.questions[0].questiondata.explanatation !=' '">Explanation:</h5>
+                        <div class="explamation" ng-if="question.questions[0].questiondata.explanatation != ' '" ng-bind-html="question.questions[0].questiondata.explanatation | unsafe">
+                        </div>
+                    </div>
+                    <a class="view-ans" style="pointer-events: none;" ng-click="viewAnswer($event)" href="javascript:;">View Answer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade custom-lightbox paper-popup" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Instructions:</h4>
+      </div>
+      <div class="modal-body" ng-bind-html="headerData.instruction | unsafe">
+      
+      </div>
+      
+    </div>
+  </div>
+</div>

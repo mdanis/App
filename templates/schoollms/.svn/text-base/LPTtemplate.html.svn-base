@@ -1,0 +1,168 @@
+<style type="text/css">
+.ServiceList{ height: auto;}
+.rigth-slide-div{}
+.slide_content{width:220px; height:400px; background:#fff; border:2px solid; border-color:(0, 0, 0)}
+
+.slide_content .service-row{margin-bottom:1px; background: #f1f1f1; padding:2px 5px; position:relative; display:table; width:100%;}
+
+
+
+.slide_content .service-row .img-radius{display:block; border-radius:50%; width:45px;	height:45px; vertical-align:middle;	text-align:center;}
+.slide_content .service-row .img-radius img{width:100%;}
+
+.slide_content .head-top{color:#fff; text-align:center; padding:5px 0; font-size:14px; font-weight:bold; text-transform:uppercase;}
+.slide_content .service-row div{display:table-cell; }
+.slide_content .service-row div:first-child{width:50px;}
+.slide_content .text{display:table-cell; font-size:14px; padding-left:10px; ext-transform:uppercase;font-weight:bold;}
+.slide_content .learnService .head-top{background:#955fab;}
+.slide_content .practiceServic .head-top{ background:#e69d00;}
+.slide_content .practiceServic .img-radius{background:#e69d00;}
+
+.slide_content .testService .head-top{background:#ec5e36;}
+.slide_content .testService .img-radius{background:#ec5e36;}
+.hide-pannel{display:none;}
+
+
+.inner-footer{display:table; width:100%;}
+.inner-footer .img-radius{ display:table-cell;}
+.mCSB_container section{display:none;}
+.mCSB_container section#Learn{display:block;}
+
+
+
+.learnService .icon-cont{ background:#955fab;}
+.practiceServic .icon-cont{ background:#e69d00;}
+.testService .icon-cont{background:#ec5e36;}
+
+.icon-cont{ border-radius:50%;}
+.icon-cont img{width:100%;}
+
+.foot-slider a{border-right:1px solid #e8e8e8;}
+
+.slick-prev, .slick-next{height:37px;}
+.slick-list{border:1px solid #EBEBEB;}
+.foot-slider{height: 39px;background: #F5F5F5;border: 1px solid #EFEFEF;}
+.learn-tab{background-color: #955FAB !important;}
+.practice-tab{background-color: #FFAE00 !important;}
+.test-tab{background-color: #EC5E36 !important;}
+
+</style>
+
+<div class="rigth-slide-div" ng-controller="mainServiceController">
+<a href="javascript:;" class="show_btn">Show&nbsp;Services</a>
+<div style="height:430px; position:relative;">
+<div class="slide_content scrollcontent" >
+
+    <section id="{{dashboard.groupname.replace(' ','')}}" ng-class="getGroupClass(dashboard.groupname)"  ng-repeat="dashboard in dashboardDetail">
+        <div class="head-top" ng-class="getGroupClass(dashboard.groupname)">
+            {{dashboard.groupname}}
+        </div>
+        <div class="service-row"  ng-repeat="servicelist in dashboard.data">
+            <div class="img-con" style="cursor: pointer;" ng-click="getServicedetail('/lms/json/servicelist/'+servicelist.container_id+'/'+servicelist.serviceId,{serviceId :servicelist.serviceId,containerId:servicelist.container_id,serviceName:servicelist.serviceName},servicelist.enable)">
+            <span class="icon-cont" style="display:block; width:45px; height:45px;"><img ng-src="{{siteUrl}}/images/icons/{{servicelist.serviceIcon}}">
+            </span>
+                </div>
+            <span class="text">{{servicelist.serviceName}}</span>
+        </div>
+
+
+</section>
+
+    </div>
+    
+    
+<div class="slider autoplay foot-slider">
+       <div ng-repeat="dashboard in dashboardDetail">
+    	<a href="javascript:void(0)" ng-class="getTabClass(dashboard.groupname)" onClick="showtabs(title);" title="{{dashboard.groupname.replace(' ','')}}" class="current-slide" style="font-size:12px;">
+    		 {{dashboard.groupname}}
+    		</a>
+    		</div>
+    </div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+    setTimeout(function() {
+	$('.autoplay').slick({
+		dots : false,
+		infinite : false,
+		speed : 300,
+		slidesToShow : 3,
+		slidesToScroll : 1,
+		autoplay : false,
+		autoplaySpeed : 2000
+	});
+	var divlength = $('.draggable .slick-slide').length;
+	if (divlength < 4){
+		$('.slick-list').css('margin', '0');
+		//var wth = $('.scrollcontent').width();
+		//$('.draggable .slick-slide').width(wth/divlength);
+	}
+	else
+		$('.slick-list').css('margin', '0 20px');
+	var firstTab = $('.draggable .slick-slide:first-child');
+	if (firstTab.hasClass('slick-active'))
+		$('.slick-prev').css('background-color', '#ccc');
+	else
+		$('.slick-prev').css('background-color', '#193B8E');
+	var lastTab = $('.draggable .slick-slide:last-child');
+	$('.slick-prev').click(function() {
+		if (lastTab.not('slick-active'))
+			$('.slick-next').css('background-color', '#193B8E');
+		if (firstTab.hasClass('slick-active'))
+			$('.slick-prev').css('background-color', '#ccc');
+	});
+	$('.slick-next').click(function() {
+		if (firstTab.not('slick-active'))
+			$('.slick-prev').css('background-color', '#193B8E');
+		else
+			$('.slick-prev').css('background-color', '#ccc');
+		if (lastTab.hasClass('slick-active'))
+			$('.slick-next').css('background-color', '#ccc');
+	});
+	$('.foot-slider a').click(function() {
+		var acolor = $(this).css("background-color");
+		$('.slide_content').css('border-color', acolor);
+
+	});
+	
+}, 3000);
+function showtabs(ele) {
+	$('.mCSB_container section').hide();
+	$('#' + ele).show();
+
+}
+
+
+$(document).ready(function() {
+	var Leftanimate = $(".rigth-slide-div");
+	$('.show_btn').click(function() {
+		$('.subject-info').hide();
+		if (Leftanimate.css("right") == "-220px") {
+			$(this).text('Hide Services');
+			$(Leftanimate).animate({
+				right : 0
+			});
+		} else {
+			$(this).text('Show Services');
+			$(Leftanimate).animate({
+				right : -220
+			});
+		};
+	});
+	$(".scrollcontent").mCustomScrollbar({
+		theme : "minimal",
+		advanced : {
+			updateOnContentResize : true
+		}
+	});
+	$('.trigger').on('click', function() {
+		setTimeout(function() {
+			$(".scrollcontent").mCustomScrollbar("update");
+		}, 500);
+	});
+
+}); 
+</script>

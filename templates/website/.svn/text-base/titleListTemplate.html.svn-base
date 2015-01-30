@@ -1,0 +1,18 @@
+<style>
+    .unsubscribe{
+        background-color: #F3F3F3;
+      color: #999999;
+     cursor: inherit;
+    }
+</style>
+
+<link rel="stylesheet" href="{{siteUrl}}/css_website/title-list.css" type="text/css" media="screen" />
+              
+      <ul class="title-list">
+    <li ng-repeat="titleList in titleListData | orderObjectBy:orderByAttribute">
+        <a id="serviceType.serviceId" ng-if="titleList.enable == 0" class=" fancybox unsubscribe" ng-click="geContent('/lms/json/contentdetail/'+containerId+'/'+serviceId+'/'+titleList.content_id,{containerId:containerId,serviceId:serviceId,contentId:titleList.content_id},titleList.enable)" href="javascript:;" title="titleList.title"> {{titleList.title}} </a>
+        <a id="serviceType.serviceId" ng-if="titleList.enable == 1" ng-click="geContent('/lms/json/contentdetail/'+containerId+'/'+serviceId+'/'+titleList.content_id,{containerId:containerId,serviceId:serviceId,contentId:titleList.content_id},titleList.enable)" href="javascript:;" title="titleList.title"> {{titleList.title}} </a>
+    </li>
+
+</ul>
+             

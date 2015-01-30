@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{siteUrl}}/css_website/paper.css" type="text/css" media="screen" />
+ <div class="model-paper">
+     <div class="model-paperscroll custom-scroll-QA">
+        <div class="paper-block">
+            <ul id="Q{{$index+1}}" ng-repeat="queData in queAnsData">
+                <li>
+                    <div class="container-Ques">
+                        <div class="ques-l">
+                            <span >Q{{$index+1}}</span>
+                        </div>
+                        <div class="ques-content">
+                            <p ng-bind-html="queData.questiondata.question | unsafe">
+                            </p>
+                        </div>
+                        <ul class="questionOptList">
+                                    <li class="questiontext" id="{{optionList.optionid}}" ng-if="queData.questiondata.questiontype == 'Objective'" ng-repeat="optionList in queData.optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                   
+                                    </li>
+                        
+                                </ul>
+                        <div class="marks-r">
+                            <span>Marks:{{queData.questiondata.questionmarks}}</span>
+                        </div>
+                    </div>
+                    <div class="answer-block">
+                        <h5>Answer: </h5>
+                        <div class="right-answer">
+                            <span ng-bind-html="queData.rightanswerdata.rightanswer[0].answer | unsafe">
+                            </span>
+                        </div>
+                        <h5 ng-if="queData.questiondata.explanatation != ' '">Explanation:</h5>
+                        <div class="explamation" ng-if="queData.questiondata.explanatation != ' '" ng-bind-html="queData.questiondata.explanatation | unsafe">
+                        </div>
+                    </div>
+                    <a class="view-ans" ng-click="viewAnswer($event)" href="javascript:;">View Answer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+ 

@@ -1,0 +1,43 @@
+ <div style="padding-left:0; margin-top: 10px;">
+    <div class="borderRadius padding10">
+        <div class="mcqTestContainer">
+            <div class="mcqHeading">Single Chapter</div>
+            <div class="mcqContent">
+                <div class="listContainer">
+                    <p class="paddingbottom40">Make your choice by selecting any particular chapter to test your preparation level.</p>
+                    <div class="pull-left"><strong>Duration Required:</strong> 20 Minutes.</div>
+                    <div class="pull-right">
+                        <a ng-click="showMcqLevelTestList('single')" href="javascript:;" class="btn btn-primary BtnDefault marginLeft5">Test Now</a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mcqTestContainer">
+            <div class="mcqHeading">Multiple Chapters</div>
+            <div class="mcqContent">
+                <div class="listContainer">
+                    <p class="paddingbottom40">Select multiple chapters from a particular subject on which you would like to test yourself. Choose the chapters to take an instant online test and evaluate your subject readiness. This acts like a quick revision and helps improving your scores in the exams.</p>
+                    <div class="pull-left"><strong>Duration Required:</strong> 20 Minutes</div>
+                    <div class="pull-right">
+                        <a href="javascript:;" ng-click="showMcqLevelTestList('multiple')" class="btn btn-primary BtnDefault marginLeft5">Test Now</a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+          <div class="mcqTestContainer">
+            <div class="mcqHeading">Practice Papers</div>
+            <div class="mcqContent">
+                <div class="listContainer">
+                    <p class="paddingbottom40">Make your choice by selecting any particular chapter to practice your preparation level.</p>
+                    <div class="pull-left"><strong>Duration Required:</strong> 20 Minutes</div>
+                    <div class="pull-right">
+                        <a href="javascript:;" ng-click="showMcqLevelTestList('practice')" class="btn btn-primary BtnDefault marginLeft5">Practice Now</a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

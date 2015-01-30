@@ -1,0 +1,71 @@
+<!--<div ng-controller="breadscumController">
+    <div id="ProMiddle_pannel"> 
+
+        <ul class="senior_breadscum">
+           
+            <li ng-repeat="breadscumList in breadscumdetail">
+                <a ng-class="addClasses($index,breadscumdetail.length)"  ng-if="breadscumList.rack_type!='board' && breadscumList.rack_type!='class' && !$last" id="{{breadscumList.rack_id}}"  click="breadscumList"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                <a   ng-if="breadscumList.rack_type=='board'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                <a   ng-if="breadscumList.rack_type=='class'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  data-slide-toggle="#openClass" data-slide-toggle-duration="500" href="javascript:;">{{breadscumList.rack_name}}</a>
+                
+                <a class="last"  ng-if="$last" click="breadscumList" name="{{breadscumList.rack_type}}"  subjectNode="{{subjectNode}}"  id="{{breadscumList.rack_id}}">{{breadscumList.rack_name}}</a>
+                
+           
+            
+            </li>
+
+        </ul>
+
+
+        <div id="openClass" class="click-nav" style="display: none;" >
+            <ul class="no-js">
+                <li>
+                    <ul>
+
+                        <li ng-repeat="classList in classDetail">
+                            <a ng-if="$index == 0" class="firstLi" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index == 1" class="firstLi" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index > 1" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                        </li>
+                        <div class="clear"> </div>
+                    </ul>
+                </li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container" ng-controller="breadscumController">
+            <div class="row">
+                <div class="breadcrums-container">
+                <ol class="breadcrumbs clearfix">
+                    <li ng-repeat="breadscumList in breadscumdetail">
+                     <a ng-class="addClasses($index,breadscumdetail.length)"  ng-if="breadscumList.rack_type!='board' && breadscumList.rack_type!='class' && !$last" id="{{breadscumList.rack_id}}"  click="breadscumList"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                     <a   ng-if="breadscumList.rack_type=='board'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  href="javascript:;">{{breadscumList.rack_name}}</a>
+                     <a   ng-if="breadscumList.rack_type=='class'" id="{{breadscumList.rack_id}}"  subjectNode="{{subjectNode}}"  data-slide-toggle="#openClass" data-slide-toggle-duration="500" href="javascript:;">{{breadscumList.rack_name}}</a>
+                     <a class="last active"  ng-if="$last" click="breadscumList" name="{{breadscumList.rack_type}}"  subjectNode="{{subjectNode}}"  id="{{breadscumList.rack_id}}">{{breadscumList.rack_name}}</a>
+<!--                    <li class="breadcrum-x"><a href="#">X</a>                 		
+                    </li>
+                    <li class="breadcrum-click"><a href="#Mathematics">Mathematics</a></li>
+                    <li class="active">Real Numbers</li>-->
+                </ol>
+                <div class="breadcrum-dropmenu" id="openClass">
+    	  <ul>
+               <li ng-repeat="classList in classDetail">
+                            <a ng-if="$index == 0" class="cols-1" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index == 1" class="cols-1 bg-color-1" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                            <a ng-if="$index > 1" href="{{siteUrl}}/website/index/dashboard/{{classList.rack_id}}">{{classList.rack_name}}</a>
+                        </li>
+<!--    	  	<li class="cols-1"><a href="#">Nursery</a></li>
+    	  	<li class="cols-1 bg-color-1"><a href="#">KG</a></li>
+    	  	<li class="bg-color-2"><a href="#">I</a></li>
+    	  	<li><a href="#">II</a></li>
+-->
+    	  	
+    	  </ul>
+         </div>
+                    </div>
+            </div>	
+        </div>

@@ -1,0 +1,165 @@
+<style>
+.middlegreyContainer_QA_ans, .hideanswer{display: none;}
+
+</style>
+ <div style="padding-left:0; margin-top: 10px;">
+      <div class="borderRadius padding10">
+        <div class="pull-right"> 
+<!--<a href="javascript:;" class="btn btn-primary BtnDefault"><i class="fa fa-search marginRight5 roundBorder"></i>Search</a>--> 
+<a href="javascript:;" ng-click="showCarriculamDetail()" ng-show="showCurriculam" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-plus marginRight5 roundBorder marginRight5"></i>Add to Curriculum</a>
+        <!--<a href="javascript:;" class="btn btn-primary BtnDefault marginLeft5"><i class="fa fa-chevron-left marginRight5 roundBorder"></i>Back</a>-->
+</div>
+        <div class="clearfix"></div>
+        
+       
+        <div class="controllerPacket height490">
+          <ul class="QuesListing" ng-repeat="queData in queAnsData">
+            <li>
+              <div class="containerQ1_QA">
+                <div class="roseleft cell">
+                  <p class="q1text">Q{{$index+1}}</p>
+                </div>
+                <div class="rosemiddle cell">
+                  <p class="questiontext" ng-bind-html="queData.questiondata.question | unsafe"></p>
+                  <ul class="questionOptList" style="list-style-type: lower-alpha;">
+                      <li class="questiontext" id="{{optionList.optionid}}" ng-if="queData.questiondata.questiontype == 'Objective'" ng-repeat="optionList in queData.optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+<!--                  <li>a) 20, 21 and 22.</li>
+                  <li>b) 22, 23 and 24.</li>
+                  <li>c) 24, 25 and 26.</li>
+                  <li>d) 25, 26 and 27.</li>-->
+                  </ul>
+                </div>
+                <div class="roseright cell">
+                  <p class="markstext">Marks:{{queData.questiondata.questionmarks}}</p>
+                </div>
+              </div>
+              <div class="middlegreyContainer_QA_ans" id="ansShowId_{{$index}}">
+                <div class="middlecenter_QA_ans">
+                  <div class="answerboldtext"> <strong>Answer:</strong>
+                    <span  ng-bind-html="getOrder(queData.rightanswerdata.rightanswer[0].order) | unsafe"></span>
+ <span ng-bind-html="queData.rightanswerdata.rightanswer[0].answer | unsafe " ></span>
+ 
+  <p ng-if="queData.questiondata.explanatation != ' '">Explanation:</p>
+                    <div ng-if="queData.questiondata.explanatation != ' '" ng-bind-html="queData.questiondata.explanatation | unsafe"></div>
+                  </div>
+                </div>
+              </div>
+               <div class="clearfix"></div>
+              <div class="viewhideanswerContainer">
+                  <div class="hideanswer" id="hideId_{{$index}}">
+                            <a  href="javascript:void(0);" class="hideAnswer" ng-click="showAndHideAns($index,'hide')">
+                                Hide Answer
+<!--                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_hide-answer_image.png">-->
+                            </a>
+                        </div>
+                            <div class="showanswer" id="showId_{{$index}}">
+                                <a  href="javascript:void(0);" class="viewAnswer" ng-click="showAndHideAns($index,'show')">
+                                    View Answer
+<!--                               <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_view_answer_image.png">-->
+                            </a>
+                        </div>
+<!--                <div style="display: none;" id="hideId" class="hideanswer"> 
+                <a href="javascript:void(0);" class="hideAnswer"> Hide Answer </a> </div>
+                <div id="showId" class="showanswer" style="display: block;"> 
+                <a href="javascript:void(0);" class="viewAnswer"> View Answer </a> </div>-->
+              </div>
+              <div class="clearfix">&nbsp;</div>
+            </li>
+          </ul>
+          <!-- ul class="QuesListing">
+            <li>
+              <div class="containerQ1_QA">
+                <div class="roseleft cell">
+                  <p class="q1text">Q2 </p>
+                </div>
+                <div class="rosemiddle cell">
+                  <p class="questiontext">If the sum of three consecutive natural numbers is 75, then numbers are:</p>
+                  <ul class="questionOptList">
+                  <li>a) 20, 21 and 22.</li>
+                  <li>b) 22, 23 and 24.</li>
+                  <li>c) 24, 25 and 26.</li>
+                  <li>d) 25, 26 and 27.</li>
+                  </ul>
+                </div>
+                <div class="roseright cell">
+                  <p class="markstext ng-binding">Marks:1</p>
+                </div>
+              </div>
+              <div id="ansShowId" class="middlegreyContainer_QA_ans" style="display: block;">
+                <div class="middlecenter_QA_ans">
+                  <div class="answerboldtext"> <strong>Answer:</strong>
+                    <p>When the air moves, it is called as wind. Winds are formed due to uneven heating of the earth's surface.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="viewhideanswerContainer">
+                <div id="hideId class="hideanswer" > <a href="javascript:void(0);" class="hideAnswer"> Hide Answer </a>  </div>
+                <div id="showId" class="showanswer" style="display: none;"> <a href="javascript:void(0);" class="viewAnswer"> View Answer </a> </div>
+              </div>
+              <div class="clearfix">&nbsp;</div>
+            </li>
+          </ul -->
+        </div>
+        
+      </div>
+    </div>
+ <div class="clearfix">&nbsp;</div>
+<!--<style>
+.middlegreyContainer_QA_ans, .hideanswer{display: none;}
+.loadingIconQA{display: none; margin-left: 45%;top: 100px;position: absolute;}
+</style>
+<div class="cont_book_scroll"> 
+    
+   <div class="controllerPacket" ng-repeat="queData in queAnsData">
+        
+        <div class="containerQ1_QA">
+				<div id="cell" class="roseleft">
+				<p class="q1text">Q{{$index+1}}</p>
+			       </div>
+				<div id="cell" class="rosemiddle">
+                                    <p class="questiontext" ng-bind-html="queData.questiondata.question | unsafe">
+                                      
+                                    </p>
+                                <ul class="questionOptList">
+                                    <li class="questiontext" id="{{optionList.optionid}}" ng-if="queData.questiondata.questiontype == 'Objective'" ng-repeat="optionList in queData.optiondata.options" ng-bind-html="optionList.optiontext | unsafe">
+                                    
+                                    </li>
+                        
+                                </ul>
+				</div>
+				<div id="cell" class="roseright">        
+				<p class="markstext">Marks:{{queData.questiondata.questionmarks}}</p>
+				</div>
+			</div>
+        <div  class="middlegreyContainer_QA_ans" id="ansShowId_{{$index}}">
+                    <div class="middlecenter_QA_ans">
+                    <div class="answerboldtext">
+                    Answer: 
+                    <p ng-bind-html="queData.rightanswerdata.rightanswer[0].answer | unsafe"></p>
+                    
+                    <br ><p ng-if="queData.questiondata.explanatation != ' '">Explanation:</p>
+                    <div ng-if="queData.questiondata.explanatation != ' '" ng-bind-html="queData.questiondata.explanatation | unsafe"></div>
+                    </div>
+                    <div>
+                    </div>
+                    </div>
+                    </div>
+                        <div class="viewhideanswerContainer">
+                            <div class="hideanswer" id="hideId_{{$index}}">
+                            <a  href="javascript:void(0);" ng-click="showAndHideAns($index,'hide')">
+                                <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_hide-answer_image.png">
+                            </a>
+                        </div>
+                            <div class="showanswer" id="showId_{{$index}}">
+                                <a  href="javascript:void(0);" ng-click="showAndHideAns($index,'show')">
+                               <img height="33" style="cursor: pointer" ng-src="{{siteUrl}}/img/Container_view_answer_image.png">
+                            </a>
+                        </div>
+		       </div>
+                        <div class="clear">&nbsp;</div>
+                        <div class="clear">&nbsp;</div>
+</div>
+</div>
+
+ <div class="clear">&nbsp;</div>
+ -->
